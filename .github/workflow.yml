@@ -21,6 +21,10 @@ jobs:
           python -m pip install --upgrade pip
           pip install ruff pytest
           if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
-      - name: Test with pytest
+      - name: Test with pytest and coverage
         run: |
-          pytest
+          pytest --cov=. --cov-report=xml
+      - name: Check coverage and set job outcome
+        run: |
+          coverage=$(python -c "import xml.etree.ElementTree as E; cov=E.parse('coverage.xml').getroot().find('totals').get('percent'); print(cov)")
+          if (( $(echo "$coverage >= 75" | bc -l) )); then echo "Coverage is above 75%. Job passed."; else echo "Coverage is below 75%. Job failed."; exit 1; fi
