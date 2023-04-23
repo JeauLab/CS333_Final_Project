@@ -1,5 +1,5 @@
 import unittest
-from schedule import Schedule
+#from schedule import Schedule
 from task import Task
 
 class TestCases(unittest.TestCase):
