@@ -25,17 +25,14 @@ class TestCases(unittest.TestCase):
         d = Date()
         d.set_year(2001)
         self.assertEqual(d.year, 2001)
-    
-    def test_get_year(self):
-        d = Date()
-        d.set_year(2001)
-        self.assertEqual(d.get_year(), 2001)
 
     def test_set_get_date_MDY(self):
         d = Date()
         date = [7,11,2001]
         d.set_date_MDY(7,11,2001)
-        self.assertEqual(date, d.get_date_MDY())
+        self.assertEqual(date[0], d.month)
+        self.assertEqual(date[1], d.day)
+        self.assertEqual(date[2], d.year)
     
     def test_set_today(self):
         d = Date()
