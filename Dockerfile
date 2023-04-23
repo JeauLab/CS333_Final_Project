@@ -8,7 +8,8 @@ ADD main.py .
 ADD task.py .
 ADD schedule.py .
 ADD test_file.py .
+ADD date.py .
 
-#RUN python -m pip install -r requirements.txt
+RUN python -m pip install datetime
 
 CMD [ "python", "main.py" ]

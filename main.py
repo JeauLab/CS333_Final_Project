@@ -1,9 +1,10 @@
 from task import Task
+from date import Date
 #from schedule import Schedule
 
 def main():
-    print("Hello World")
-    t = Task()
+    d = Date()
+    d.set_curr
 
 
 if __name__ == '__main__':

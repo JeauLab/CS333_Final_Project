@@ -1,9 +1,12 @@
 class Task():
-    def __init__(self):
-        self.x = 1
+    def __init__(self, task_name):
+        # Name of the given task
+        self.name = task_name
 
-    def add(self, y):
-        return self.x + y
+        # Importance level of the task
+        self.importance = 0
 
-    def sub(self, y):
-        return y - self.x
+        # Date the 
+    
+    def set_name(task_name):
+        self.name = task_name
