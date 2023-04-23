@@ -1,4 +1,5 @@
 from task import Task
+from schedule import Schedule
 
 def main():
     print("Hello World")
