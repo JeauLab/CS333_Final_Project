@@ -21,6 +21,11 @@ class Date():
         self.month = m
         self.day = d
         self.year = y
+    
+    def set_equal(self, other_date):
+        self.month = other_date.month
+        self.day = other_date.day
+        self.year = other_date.year
 
     def set_today(self):
         today = date.today()
