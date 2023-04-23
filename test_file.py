@@ -96,10 +96,14 @@ class TestCases(unittest.TestCase):
         t.date.set_date_MDY(7,11,2023)
         t.calculate_days_left()
         self.assertGreater(t.days_left, 0)
-
-        
-        
-
+    
+    # Task Unit Test
+    def test_calculate_IDR(self):
+        t = Task("")
+        t.set_importance(10)
+        t.days_left = 2
+        t.calculate_IDR()
+        self.assertEqual(t.IDR, 5)
 
 
 if __name__ == "__main__":

@@ -22,6 +22,8 @@ class Task():
         self.date = Date()
         # Days until task
         self.days_left = 0
+        # Importance/Day Ratio
+        self.IDR = 0
     
     # Method to set the name of the task
     def set_name(self, task_name):
@@ -34,6 +36,7 @@ class Task():
     # Method to set the date the task needs to be done
     def set_date(self, date):
         self.date.set_equal(date)
+        self.calculate_days_left()
 
     # Method to calculate numbers of days left until task
     def calculate_days_left(self):
@@ -45,7 +48,12 @@ class Task():
         date1_total = month_to_days(today.month) + int(today.day) + (int(today.year))*365
         date2_total = month_to_days(self.date.month) + self.date.day + (self.date.year)*365
         self.days_left = date2_total-date1_total
-
+        self.calculate_IDR()
+    
+    # Method to calculate the importance to date ratio
+    # Importance to date ratio is used for one method of sorting
+    def calculate_IDR(self):
+        self.IDR = self.importance/self.days_left
 
     
 
