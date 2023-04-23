@@ -89,6 +89,13 @@ class TestCases(unittest.TestCase):
         self.assertEqual(t.date.month, 7)
         self.assertEqual(t.date.day, 11)
         self.assertEqual(t.date.year, 2001)
+    
+    # Task Unit Test (Integration Test With Date)
+    def test_calculate_days_left(self):
+        t = Task("")
+        t.date.set_date_MDY(7,11,2023)
+        t.calculate_days_left()
+        self.assertGreater(t.days_left, 0)
 
         
         
