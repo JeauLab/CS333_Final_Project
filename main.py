@@ -3,6 +3,7 @@ from task import Task
 
 def main():
     print("Hello World")
+    print("a")
     t = Task()
 
 
