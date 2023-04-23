@@ -8,5 +8,5 @@ class Task():
 
         # Date the 
     
-    def set_name(task_name):
+    def set_name(self, task_name):
         self.name = task_name
