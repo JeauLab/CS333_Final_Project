@@ -24,3 +24,7 @@ jobs:
       - name: Test with pytest
         run: |
           pytest
+      - name: Coverage
+        run: |
+          coverage run -m unittest discover
+          coverage report -m
