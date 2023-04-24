@@ -105,7 +105,7 @@ class Schedule():
     def save_data(self):
         file = open("save_data", 'w')
         for task in self.task_list:
-            writable = str(task.name)+"|"+str(task.importance)+"|"+str(task.days_left)+"|"+str(task.date.month)+"-"+str(task.date.day)+"-"+str(task.date.year)+"|"+str(task.IDR)
+            writable = str(task.name)+"|"+str(task.importance)+"|"+str(task.days_left)+"|"+str(task.date.month)+"-"+str(task.date.day)+"-"+str(task.date.year)+"|"+str(task.IDR)+"\n"
             file.write(writable)
         # Close the file
         file.close()
