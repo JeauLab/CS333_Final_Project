@@ -54,14 +54,14 @@ class Task():
         today = Date()
         today.set_today()
         date1_total = month_to_days(today.month) + int(today.day) + (int(today.year))*365
-        date2_total = month_to_days(self.date.month) + self.date.day + (self.date.year)*365
+        date2_total = month_to_days(self.date.month) + int(self.date.day) + (int(self.date.year))*365
         self.days_left = date2_total-date1_total
         self.calculate_IDR()
     
     # Method to calculate the importance to date ratio
     # Importance to date ratio is used for one method of sorting
     def calculate_IDR(self):
-        self.IDR = self.importance/self.days_left
+        self.IDR = float(self.importance)/float(self.days_left)
 
     
 
