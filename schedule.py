@@ -1,4 +1,5 @@
 from task import Task
+from date import Date
 
 class Schedule():
     def __init__(self):
@@ -66,3 +67,47 @@ class Schedule():
                    temp.set_equal(self.task_list[i])
                    self.task_list[i].set_equal(self.task_list[j])
                    self.task_list[j].set_equal(temp)
+
+    # Function to read data from a file
+    # File IO No Unit Testing Here
+    def load_data(self):
+        file = open("save_data", 'r')
+        # Read the contents of the file
+        file_contents = file.readlines()
+        # For each line in the file
+        # Each line corresponds to one task
+        for line in file_contents:
+            # Temp task as a placeholder
+            temp_task = Task("")
+
+            # Split operator to differentiate data
+            parts = line.split("|")
+
+            # Assigning data
+            temp_task.set_name(parts[0])
+            temp_task.set_importance(int(parts[1]))
+            temp_task.days_left = int(parts[2])
+            date_parts = parts[3].split("-")
+            temp_date = Date()
+            temp_date.set_date_MDY(int(date_parts[0]),int(date_parts[1]),int(date_parts[2]))
+            temp_task.set_date(temp_date)
+            temp_task.IDR = float(parts[4])
+
+            self.task_list.append(temp_task)
+
+
+        # Close the file
+        file.close()
+        
+    
+    # Function to save data to a file
+    # File IO No Unit Testing Here
+    def save_data(self):
+        file = open("save_data", 'w')
+        for task in self.task_list:
+            writable = str(task.name)+"|"+str(task.importance)+"|"+str(task.days_left)+"|"+str(task.date.month)+"-"+str(task.date.day)+"-"+str(task.date.year)+"|"+str(task.IDR)
+            file.write(writable)
+        # Close the file
+        file.close()
+
+

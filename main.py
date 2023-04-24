@@ -99,11 +99,13 @@ def main():
         
         # User wants to load data from a save file
         elif choice == "6":
-            print("load")
+            main_schedule.load_data()
+            print("\nLoaded Save Data Successfully!")
         
         # User wants to save data to file
         elif choice == "7":
-            print("save")
+            main_schedule.save_data()
+            print("\nData Saved Successfully!")
 
         # Exit the program
         elif choice == "0":
@@ -112,8 +114,6 @@ def main():
         # In case user does not enter one of the choices
         else:
             print("Please enter one of the choices!")
-    
-
     
 
 if __name__ == '__main__':
