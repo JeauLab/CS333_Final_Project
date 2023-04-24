@@ -26,11 +26,13 @@ class Schedule():
             if self.task_list[i].name == task.name:
                 return i
     
-    # No unit testing here officer just some IO
+    # No unit testing here officer just some I/O
     def display_schedule(self):
-        print("\n ID |    Task    |  Importance  |   Days Till   |    Due    ")
+        print("\n ID |  Task  | Importance |  Days Till  |     Due     |    I/D Ratio")
         print("---------------------------------------------------------------")
         i = 0
         for task in self.task_list:
-            print(i,"   ", task.name, "       ",task.importance, "           ",task.days_left, "        ",task.date.month, "-",task.date.day,"-",task.date.year)
+            print(i," ", task.name, "     ",task.importance, 
+            "        ",task.days_left, "      ", task.date.month, 
+            "-", task.date.day, "-", task.date.year, "    ", round(task.IDR,2))
             i += 1

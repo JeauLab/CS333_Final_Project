@@ -5,6 +5,9 @@ from date import Date
 from datetime import date
 
 class TestCases(unittest.TestCase):
+
+    # DATE UNIT TESTS
+
     # Date Unit Test
     def test_date_init(self):
         d = Date()
@@ -58,8 +61,10 @@ class TestCases(unittest.TestCase):
         self.assertEqual(parts[0], d.year)
         self.assertEqual(parts[1], d.month)
         self.assertEqual(parts[2], d.day)
+
+    # TASK UNIT AND INTEGRATION TESTS
     
-    # Task Unit Test (Integration Test With Date)
+    # Task Unit Test (Integration Test with Date)
     def test_task_create(self):
         t = Task("Laundry")
         self.assertEqual(t.name, "Laundry")
@@ -80,7 +85,7 @@ class TestCases(unittest.TestCase):
         t.set_importance(10)
         self.assertEqual(t.importance, 10)
     
-    # Task Unit Test (Integration Test With Date)
+    # Task Unit Test (Integration Test with Date)
     def test_set_date(self):
         t = Task("")
         d = Date()
@@ -90,7 +95,7 @@ class TestCases(unittest.TestCase):
         self.assertEqual(t.date.day, 11)
         self.assertEqual(t.date.year, 2001)
     
-    # Task Unit Test (Integration Test With Date)
+    # Task Unit Test (Integration Test with Date)
     def test_calculate_days_left(self):
         t = Task("")
         t.date.set_date_MDY(7,11,2023)
@@ -104,6 +109,52 @@ class TestCases(unittest.TestCase):
         t.days_left = 2
         t.calculate_IDR()
         self.assertEqual(t.IDR, 5)
+
+    # SCHEDULE UNIT AND INTEGRATION TESTS
+
+    # Schedule Unit Test
+    def test_schedule(self):
+        s = Schedule()
+        self.assertListEqual(s.task_list, [])
+
+    # Schedule Unit Test (Integration Test with Task)
+    def test_add_task(self):
+        s = Schedule()
+        t = Task("Laundry")
+        list = []
+        list.append(t)
+        s.add_task(t)
+        self.assertListEqual(s.task_list, list)
+
+    # Schedule Unit Test (Integration Test with Task)
+    def test_remove_task(self):
+        s = Schedule()
+        t = Task("Laundry")
+        j = Task("Homework")
+        list = []
+        list.append(j)
+        s.add_task(t)
+        s.add_task(j)
+        s.remove_task(t)
+        self.assertListEqual(s.task_list, list)
+
+    # Schedule Unit Test (Integration Test with Task)
+    def test_clear_list(self):
+        s = Schedule()
+        t = Task("Laundry")
+        list = []
+        s.add_task(t)
+        s.clear_list()
+        self.assertListEqual(s.task_list, list)
+    
+    # Schedule Unit Test (Integration Test with Task)
+    def test_find_task_index(self):
+        s = Schedule()
+        t = Task("Laundry")
+        j = Task("Homework")
+        s.add_task(t)
+        s.add_task(j)
+        self.assertEqual(s.find_task_index(j), 1)
 
 
 if __name__ == "__main__":
