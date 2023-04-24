@@ -22,6 +22,12 @@ def main():
     c.set_date(d)
     s.add_task(c)
     s.display_schedule()
+    s.sort_by_importance()
+    s.display_schedule()
+    s.sort_by_date()
+    s.display_schedule()
+    s.sort_by_IDR()
+    s.display_schedule()
 
     
 

@@ -37,6 +37,14 @@ class Task():
     def set_date(self, date):
         self.date.set_equal(date)
         self.calculate_days_left()
+    
+    # Method to set this task to be equal to another
+    def set_equal(self, other_task):
+        self.name = other_task.name
+        self.importance = other_task.importance
+        self.date.set_equal(other_task.date)
+        self.days_left = other_task.days_left
+        self.IDR = other_task.IDR
 
     # Method to calculate numbers of days left until task
     def calculate_days_left(self):

@@ -36,3 +36,33 @@ class Schedule():
             "        ",task.days_left, "      ", task.date.month, 
             "-", task.date.day, "-", task.date.year, "    ", round(task.IDR,2))
             i += 1
+
+    # Function to sort list by importance
+    def sort_by_importance(self):
+        for i in range(len(self.task_list)):
+           for j in range(len(self.task_list)):
+               if self.task_list[i].importance > self.task_list[j].importance:
+                   temp = Task("")
+                   temp.set_equal(self.task_list[i])
+                   self.task_list[i].set_equal(self.task_list[j])
+                   self.task_list[j].set_equal(temp)
+
+    # Function to sort list by date due
+    def sort_by_date(self):
+        for i in range(len(self.task_list)):
+           for j in range(len(self.task_list)):
+               if self.task_list[i].days_left < self.task_list[j].days_left:
+                   temp = Task("")
+                   temp.set_equal(self.task_list[i])
+                   self.task_list[i].set_equal(self.task_list[j])
+                   self.task_list[j].set_equal(temp)
+
+    # Function to sort list by IDR
+    def sort_by_IDR(self):
+        for i in range(len(self.task_list)):
+           for j in range(len(self.task_list)):
+               if self.task_list[i].IDR > self.task_list[j].IDR:
+                   temp = Task("")
+                   temp.set_equal(self.task_list[i])
+                   self.task_list[i].set_equal(self.task_list[j])
+                   self.task_list[j].set_equal(temp)

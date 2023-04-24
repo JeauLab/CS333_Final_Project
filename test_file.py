@@ -96,6 +96,15 @@ class TestCases(unittest.TestCase):
         self.assertEqual(t.date.year, 2001)
     
     # Task Unit Test (Integration Test with Date)
+    def test_set_equal(self):
+        t = Task("")
+        j = Task("Laundry")
+        j.set_importance(5)
+        t.set_equal(j)
+        self.assertEqual(t.name,"Laundry")
+        self.assertEqual(t.importance,5)
+
+    # Task Unit Test (Integration Test with Date)
     def test_calculate_days_left(self):
         t = Task("")
         t.date.set_date_MDY(7,11,2023)
@@ -155,6 +164,42 @@ class TestCases(unittest.TestCase):
         s.add_task(t)
         s.add_task(j)
         self.assertEqual(s.find_task_index(j), 1)
+    
+    # Schedule Unit Test (Integration Test with Task)
+    def test_sort_by_importance(self):
+        s = Schedule()
+        t = Task("Laundry")
+        t.set_importance(1)
+        s.add_task(t)
+        j = Task("Homework")
+        j.set_importance(10)
+        s.add_task(j)
+        s.sort_by_importance()
+        self.assertEqual(s.task_list[0].name,"Homework")
+    
+    # Schedule Unit Test (Integration Test with Task)
+    def test_sort_by_date(self):
+        s = Schedule()
+        t = Task("Laundry")
+        t.days_left = 100
+        s.add_task(t)
+        j = Task("Homework")
+        j.days_left = 1
+        s.add_task(j)
+        s.sort_by_date()
+        self.assertEqual(s.task_list[0].name,"Homework")
+
+    # Schedule Unit Test (Integration Test with Task)
+    def test_sort_by_IDR(self):
+        s = Schedule()
+        t = Task("Laundry")
+        t.IDR = 1.0
+        s.add_task(t)
+        j = Task("Homework")
+        j.IDR = 100.0
+        s.add_task(j)
+        s.sort_by_IDR()
+        self.assertEqual(s.task_list[0].name,"Homework")
 
 
 if __name__ == "__main__":
