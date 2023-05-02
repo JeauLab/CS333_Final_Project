@@ -5,7 +5,6 @@ from schedule import Schedule
 
 def main():
     main_schedule = Schedule()
-    print('test')
     while True:
         print("\n      Task Scheduler      ")
         print("==========================")
